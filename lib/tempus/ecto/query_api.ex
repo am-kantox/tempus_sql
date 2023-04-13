@@ -3,7 +3,7 @@ if Code.ensure_loaded?(Ecto.Query.API) do
     @moduledoc """
     Provides several helpers to query DB for the `Tempus.Slot` type.
 
-    Under the hood it delegates to 
+    Under the hood it delegates to
     [`Ecto.Query.API.fragment/1`](https://hexdocs.pm/ecto/Ecto.Query.API.html#fragment/1-defining-custom-functions-using-macros-and-fragment),
     but might be helpful for compile-type sanity check for typos and
     better language server support.
@@ -61,15 +61,16 @@ if Code.ensure_loaded?(Ecto.Query.API) do
     _Example:_
 
     ```elixir
-    iex> Occasion
-    ...> |> where([o], started_after(o.initial, ~U[2023-01-01 00:00:00Z]))
+    iex>
+    ...> Occasion
+    ...> |> where([o], started_after(o.initial, ^~U[2023-01-01 00:00:00Z]))
     ...> |> select([o], o.initial)
     ...> |> Repo.all()
     [%Tempus.Slot{from: ~U[2023-04-07 00:00:00Z], to: ~U[2023-04-10 23:59:59.999999Z]}]
     ```
     """
-    defmacro started_after(field, %DateTime{} = dt) do
-      quote do: slot_from(unquote(field)) > ^unquote(dt)
+    defmacro started_after(field, dt) do
+      quote do: slot_from(unquote(field)) > unquote(dt)
     end
   end
 end

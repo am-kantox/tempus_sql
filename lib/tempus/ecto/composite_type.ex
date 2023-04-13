@@ -16,7 +16,7 @@ if Code.ensure_loaded?(Ecto.Type) do
     def cast_type(opts \\ []), do: Ecto.ParameterizedType.init(__MODULE__, opts)
 
     @impl Ecto.ParameterizedType
-    def init(opts), do: Keyword.drop(opts, ~w|field schema default|)
+    def init(opts), do: Keyword.drop(opts, ~w|field schema default|a)
 
     @impl Ecto.ParameterizedType
     def load(tuple, loader \\ nil, params \\ [])
@@ -79,7 +79,7 @@ if Code.ensure_loaded?(Ecto.Type) do
       end
     end
 
-    def cast(_money, _params), do: :error
+    def cast(_slot, _params), do: :error
 
     def embed_as(term), do: embed_as(term, [])
 

@@ -1,0 +1,1 @@
+CREATE TYPE public.tempus_slot AS (slot_from timestamp, slot_to timestamp);

@@ -11,6 +11,7 @@ defmodule TempusSql.MixProject do
       name: "Tempus SQL",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
       description: description(),
       package: package(),
       deps: deps(),
@@ -33,7 +34,8 @@ defmodule TempusSql.MixProject do
   defp deps do
     [
       {:tempus, path: "../tempus"},
-      {:ecto, "~> 3.0"},
+      {:ecto_sql, "~> 3.0"},
+      {:postgrex, "> 0.0.0"},
       # {:tempus, "~> 0.8"},
       # dev / test / ci
       {:credo, "~> 1.0", only: [:dev, :ci], runtime: false},
@@ -44,6 +46,7 @@ defmodule TempusSql.MixProject do
 
   defp aliases do
     [
+      test: ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate --quiet", "test"],
       quality: ["format", "credo --strict", "dialyzer --unmatched_returns"],
       "quality.ci": [
         "format --check-formatted",
@@ -82,4 +85,8 @@ defmodule TempusSql.MixProject do
       groups_for_modules: []
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "lib_dev", "test", "test/support"]
+  defp elixirc_paths(:dev), do: ["lib", "lib_dev"]
+  defp elixirc_paths(_), do: ["lib"]
 end

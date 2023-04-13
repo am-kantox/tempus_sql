@@ -6,10 +6,10 @@ if Code.ensure_loaded?(Ecto.Query.API) do
 
     @impl Tempus.Ecto.Query.API
     defmacro slot_from(field),
-      do: quote(do: fragment(~S|(?->>'from')::int|, unquote(field)))
+      do: quote(do: fragment(~S|(?->>'slot_from')::int|, unquote(field)))
 
     @impl Tempus.Ecto.Query.API
     defmacro slot_to(field),
-      do: quote(do: fragment(~S|?->>'to'|, unquote(field)))
+      do: quote(do: fragment(~S|?->>'slot_to'|, unquote(field)))
   end
 end

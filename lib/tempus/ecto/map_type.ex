@@ -11,8 +11,8 @@ if Code.ensure_loaded?(Ecto.Type) do
     use Ecto.ParameterizedType
 
     defdelegate init(params), to: Tempus.Ecto.Composite.Type
-    defdelegate cast(money), to: Tempus.Ecto.Composite.Type
-    defdelegate cast(money, params), to: Tempus.Ecto.Composite.Type
+    defdelegate cast(slot), to: Tempus.Ecto.Composite.Type
+    defdelegate cast(slot, params), to: Tempus.Ecto.Composite.Type
 
     # New for ecto_sql 3.2
     defdelegate embed_as(term), to: Tempus.Ecto.Composite.Type
@@ -30,7 +30,7 @@ if Code.ensure_loaded?(Ecto.Type) do
                (is_struct(to, DateTime) or is_nil(to)),
         do: Tempus.slot(from, to)
 
-    def dump(money, dumper \\ nil, params \\ [])
+    def dump(slot, dumper \\ nil, params \\ [])
 
     def dump(%Tempus.Slot{from: from, to: to}, _dumper, _params),
       do: {:ok, %{"from" => from, "to" => to}}
