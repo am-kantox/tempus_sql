@@ -23,7 +23,7 @@ if Code.ensure_loaded?(Ecto.Type) do
 
     def load(nil, _loader, _params), do: {:ok, nil}
 
-    def load({from, to}, _loader, _params), do: {:ok, Slot.new(from, to)}
+    def load({from, to}, _loader, _params), do: Slot.new(from, to)
 
     # Dumping to the database.  We make the assumption that
     # since we are dumping from %Slot{} structs that the

@@ -24,3 +24,5 @@ tempus_sql-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+/.dialyzer/

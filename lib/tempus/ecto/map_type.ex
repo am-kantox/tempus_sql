@@ -25,15 +25,19 @@ if Code.ensure_loaded?(Ecto.Type) do
     def load(slot, loader \\ nil, params \\ [])
     def load(nil, _loader, _params), do: {:ok, nil}
 
-    def load(%{"from" => from, "to" => to}, _loader, _params)
+    def load(%{"slot_from" => from, "slot_to" => to}, _loader, _params)
         when (is_struct(from, DateTime) or is_nil(from)) and
                (is_struct(to, DateTime) or is_nil(to)),
         do: Tempus.slot(from, to)
 
+    def load(%{"slot_from" => from, "slot_to" => to}, _loader, _params)
+        when is_binary(from) and is_binary(to),
+        do: Tempus.guess(from, to)
+
     def dump(slot, dumper \\ nil, params \\ [])
 
     def dump(%Tempus.Slot{from: from, to: to}, _dumper, _params),
-      do: {:ok, %{"from" => from, "to" => to}}
+      do: {:ok, %{"slot_from" => from, "slot_to" => to}}
 
     def dump(nil, _, _), do: {:ok, nil}
     def dump(_, _, _), do: :error

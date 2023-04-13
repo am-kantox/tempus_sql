@@ -70,7 +70,7 @@ if Code.ensure_loaded?(Ecto.Query.API) do
     ```
     """
     defmacro started_after(field, dt) do
-      quote do: slot_from(unquote(field)) > unquote(dt)
+      quote do: slot_from(unquote(field)) > ^unquote(dt)
     end
   end
 end

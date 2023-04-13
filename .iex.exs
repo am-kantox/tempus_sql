@@ -4,7 +4,7 @@ if File.exists?(global_settings), do: Code.require_file(global_settings)
 alias Ecto.Adapters.SQL
 alias Tempus.SQL.Repo
 
-import Tempus.Ecto.Query.API.Composite
+import Tempus.Ecto.Query.API.Map.Postgres
 import Tempus.Ecto.Query.API
 
 import Ecto

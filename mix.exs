@@ -33,10 +33,10 @@ defmodule TempusSql.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tempus, path: "../tempus"},
+      {:tempus, "~> 0.9"},
       {:ecto_sql, "~> 3.0"},
+      {:jason, "~> 1.0"},
       {:postgrex, "> 0.0.0"},
-      # {:tempus, "~> 0.8"},
       # dev / test / ci
       {:credo, "~> 1.0", only: [:dev, :ci], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev, :ci], runtime: false},
