@@ -1,4 +1,4 @@
-defmodule TempusSql.MixProject do
+defmodule Tempus.SQL.MixProject do
   use Mix.Project
 
   @app :tempus_sql
