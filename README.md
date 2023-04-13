@@ -1,21 +1,18 @@
-# TempusSql
+# ![TempusSQL](https://raw.githubusercontent.com/am-kantox/tempus_sql/master/stuff/tempus_sql-48x48.png) TempusSQL    [![Kantox ❤ OSS](https://img.shields.io/badge/❤-kantox_oss-informational.svg)](https://kantox.com/)  ![Test](https://github.com/am-kantox/tempus_sql/workflows/Test/badge.svg)  ![Dialyzer](https://github.com/am-kantox/tempus_sql/workflows/Dialyzer/badge.svg)
 
-**TODO: Add description**
+**Ecto/SQL backend to use with `Tempus` library**
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `tempus_sql` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:tempus_sql, "~> 0.1.0"}
+    {:tempus_sql, "~> 0.1"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/tempus_sql>.
+## Changelog
+- **`0.1.0`** — initial version, `Tempus.Ecto.Query.API.started_after/2`
 
+## [Documentation](https://hexdocs.pm/tempus_sql)

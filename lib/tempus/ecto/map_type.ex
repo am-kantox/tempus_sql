@@ -1,11 +1,11 @@
 if Code.ensure_loaded?(Ecto.Type) do
   defmodule Tempus.Ecto.Map.Type do
     @moduledoc """
-    Implements Ecto.Type behaviour for Tempus, where the underlying schema type
-    is a map.
+    Implements `Ecto.Type` behaviour for `Tempus.Slot`,
+      where the underlying schema type is a map.
 
-    This is the required option for databases such as MySQL that do not support
-    composite types.
+    This is the required option for databases such as _MySQL_
+      that do not support composite types.
     """
 
     use Ecto.ParameterizedType

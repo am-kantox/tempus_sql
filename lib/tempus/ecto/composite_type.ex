@@ -1,8 +1,12 @@
 if Code.ensure_loaded?(Ecto.Type) do
   defmodule Tempus.Ecto.Composite.Type do
     @moduledoc """
-    Implements the Ecto.Type behaviour for a user-defined Postgres composite type
-    called `:tempus_slot`.
+    Implements the `Ecto.Type` behaviour for a user-defined
+      [postgres composite type](https://www.postgresql.org/docs/current/rowtypes.html)
+      called `:tempus_slot` to store instances of `Tempus.Slot`.
+
+    This type is preferred over `Tempus.Ecto.Map.Type`
+      unless there is no way to use composite types (e. g. `MySQL` database.)
     """
 
     use Ecto.ParameterizedType

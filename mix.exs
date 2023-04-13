@@ -65,7 +65,7 @@ defmodule TempusSql.MixProject do
   defp package do
     [
       name: @app,
-      files: ~w|lib mix.exs README.md LICENSE|,
+      files: ~w|stuff lib mix.exs README.md LICENSE|,
       maintainers: ["Aleksei Matiushkin"],
       licenses: ["Kantox LTD"],
       links: %{
@@ -81,8 +81,15 @@ defmodule TempusSql.MixProject do
       source_ref: "v#{@version}",
       canonical: "http://hexdocs.pm/#{@app}",
       source_url: "https://github.com/am-kantox/#{@app}",
+      logo: "stuff/#{@app}-48x48.png",
+      assets: "stuff/images",
       extras: ~w[README.md],
-      groups_for_modules: []
+      groups_for_modules: [
+        Types: [
+          Tempus.Ecto.Composite.Type,
+          Tempus.Ecto.Map.Type
+        ]
+      ]
     ]
   end
 
