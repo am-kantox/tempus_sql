@@ -63,8 +63,7 @@ defmodule Tempus.DDL do
   def execute_each(sql) do
     sql
     |> String.split("\n\n\n")
-    |> Enum.map(&execute/1)
-    |> Enum.join("\n")
+    |> Enum.map_join("\n", &execute/1)
   end
 
   @doc """
