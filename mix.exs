@@ -2,7 +2,7 @@ defmodule Tempus.SQL.MixProject do
   use Mix.Project
 
   @app :tempus_sql
-  @version "0.1.0"
+  @version "0.10.0"
 
   def project do
     [
@@ -20,7 +20,7 @@ defmodule Tempus.SQL.MixProject do
       docs: docs(),
       dialyzer: [
         plt_file: {:no_warn, ".dialyzer/dialyzer.plt"},
-        plt_add_deps: :transitive,
+        plt_add_deps: :app_tree,
         plt_add_apps: [:nimble_options, :mix],
         list_unused_filters: true,
         ignore_warnings: ".dialyzer_ignore.exs"

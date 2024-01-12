@@ -61,12 +61,12 @@ if Code.ensure_loaded?(Ecto.Query.API) do
     _Example:_
 
     ```elixir
-    iex>
-    ...> Occasion
-    ...> |> where([o], started_after(o.initial, ^~U[2023-01-01 00:00:00Z]))
-    ...> |> select([o], o.initial)
-    ...> |> Repo.all()
-    [%Tempus.Slot{from: ~U[2023-04-07 00:00:00Z], to: ~U[2023-04-10 23:59:59.999999Z]}]
+    dt = ~U[2023-01-01 00:00:00Z]
+    Occasion
+    |> where([o], started_after(o.initial, ^dt))
+    |> select([o], o.initial)
+    |> Repo.all()
+    #⇒ [%Tempus.Slot{from: ~U[2023-04-07 00:00:00Z], to: ~U[2023-04-10 23:59:59.999999Z]}]
     ```
     """
     defmacro started_after(field, dt) do

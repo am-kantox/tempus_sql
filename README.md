@@ -13,6 +13,7 @@ end
 ```
 
 ## Changelog
+- **`0.10.0`** — version numbers correspond to `Tempus` itself
 - **`0.1.0`** — initial version, `Tempus.Ecto.Query.API.started_after/2`
 
 ## [Documentation](https://hexdocs.pm/tempus_sql)

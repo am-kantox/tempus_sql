@@ -26,3 +26,6 @@ tempus_sql-*.tar
 /tmp/
 
 /.dialyzer/
+
+.tool-versions
+/.elixir-tools/
