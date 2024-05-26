@@ -21,7 +21,7 @@ defmodule Tempus.SQL.MixProject do
       dialyzer: [
         plt_file: {:no_warn, ".dialyzer/dialyzer.plt"},
         plt_add_deps: :app_tree,
-        plt_add_apps: [:nimble_options, :mix],
+        plt_add_apps: [:mix],
         list_unused_filters: true,
         ignore_warnings: ".dialyzer_ignore.exs"
       ]
