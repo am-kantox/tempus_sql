@@ -13,11 +13,11 @@ jobs:
       matrix:
         include:
           - pair:
-              otp: 24.3
+              otp: 24
               elixir: 1.12
           - pair:
-              otp: 25.2
-              elixir: 1.14
+              otp: 27
+              elixir: 1.18.0-rc.0
     services:
       postgres:
         image: postgres
